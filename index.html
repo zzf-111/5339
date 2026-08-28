@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>朱智繁 · Zhu Zhifan — Portfolio</title>
+<meta name="description" content="朱智繁的个人简历网站：AI 应用探索者，独立 H5 游戏开发者，摄影与旅行爱好者。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=14" />
+</head>
+<body>
+
+<!-- ============ INTRO 帘子开场(照做 ricardochance)：左右两半帘、句子从左往右打字机 ============ -->
+<div class="intro" id="intro">
+  <p class="intro__eyebrow">ZHU ZHIFAN — PORTFOLIO 2026</p>
+  <div class="intro__half intro__half--l"><p class="intro__text">Take it slow, <em>but never stop.</em></p></div>
+  <div class="intro__half intro__half--r"><p class="intro__text">Take it slow, <em>but never stop.</em></p></div>
+  <span class="intro__glow"></span>
+</div>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-label" id="cursorLabel">查看</div>
+
+<!-- 鼠标跟随星云拖尾 -->
+
+<canvas id="mousetrail" aria-hidden="true"></canvas>
+
+<!-- 侧边进度导航 -->
+<nav class="side-nav" id="sideNav" aria-label="侧边导航"></nav>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#home" data-magnetic>Z·<span>Z</span></a>
+  <nav class="nav__links" id="navLinks">
+    <a href="#about" data-nav><i>01</i><span>特质</span></a>
+    <a href="#story" data-nav><i>02</i><span>历程</span></a>
+    <a href="#works" data-nav><i>03</i><span>作品</span></a>
+    <a href="#space" data-nav><i>05</i><span>空间</span></a>
+    <a href="#contact" data-nav><i>06</i><span>联系</span></a>
+  </nav>
+  <button id="bgmBtn" class="bgm-btn playing" aria-label="关闭背景音乐">
+    <span class="bgm__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="bgm__label">MUSIC ON</span>
+  </button>
+  <a class="nav__cta" href="#contact" data-magnetic>找我聊聊</a>
+  <button class="nav__burger" id="burger" aria-label="菜单">
+    <span></span><span></span>
+  </button>
+</header>
+<audio id="bgm" src="《网页小步》浅-流行.mp3" loop preload="metadata"></audio>
+
+<!-- 动态环境背景画布 (流彩·随区块变色·星尘粒子) -->
+<div class="ambient" aria-hidden="true">
+  <canvas id="bgfx"></canvas>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero__bg" aria-hidden="true">
+    <span class="orb orb--pink"></span>
+    <span class="orb orb--violet"></span>
+    <span class="orb orb--cyan"></span>
+    <span class="orb orb--peach"></span>
+  </div>
+
+  <div class="hero__meta">
+    <span class="eyebrow">PORTFOLIO — 2026 // AI Explorer</span>
+    <span class="hero__status"><i></i> 欢迎来到我的小宇宙</span>
+  </div>
+
+  <div class="hero__inner">
+    <div class="hero__info">
+      <h1 class="hero__title">
+        <span class="line line--reveal line--zh">朱智繁</span>
+        <span class="line line--reveal line--en">ZHU ZHIFAN</span>
+      </h1>
+
+      <p class="hero__tag">慢慢来，但别停下</p>
+
+      <p class="hero__role reveal">
+        齐鲁工业大学 · 通信工程 · 大一学生<br class="br-mobile" />
+        一名热爱 <em>AI 应用</em> 的探索者，追求将 AI 与我热爱的<br class="br-mobile" />
+        音乐、游戏与视觉表达相融。
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#works" data-magnetic data-cursor>
+          <span>进入作品</span>
+        </a>
+        <a class="btn btn--ghost" href="#contact" data-cursor>
+          <span>保持联系</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__media" aria-hidden="false">
+      <div class="avatar" data-tilt="">
+        <img src="头像.png" alt="朱智繁的头像" />
+        <span class="avatar__ring"></span>
+        <span class="avatar__glow"></span>
+      </div>
+      <span class="avatar-chip chip--1">✦ AI 应用</span>
+      <span class="avatar-chip chip--2">♫ 音乐</span>
+      <span class="avatar-chip chip--3">⌖ 游戏</span>
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <span>SCROLL</span>
+    <i></i>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="stats__grid">
+    <div class="stat reveal" data-delay="0">
+      <b class="stat__num" data-count="6">0</b>
+      <span class="stat__suf">张</span>
+      <p>AI 认证证书</p>
+    </div>
+    <div class="stat reveal" data-delay="100">
+      <b class="stat__num" data-count="5">0</b>
+      <span class="stat__suf">+</span>
+      <p>可用的 AI Skills</p>
+    </div>
+    <div class="stat reveal" data-delay="200">
+      <b class="stat__num" data-count="4">0</b>
+      <span class="stat__suf">套</span>
+      <p>已跑通的工作流</p>
+    </div>
+    <div class="stat reveal" data-delay="300">
+      <b class="stat__num" data-count="3">0</b>
+      <span class="stat__suf">款</span>
+      <p>自制 H5 小游戏</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<section class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <div class="ticker__group">
+      <span>AI 应用探索</span><i>✦</i><span>独立游戏开发</span><i>✦</i><span>视频剪辑</span><i>✦</i><span>摄影</span><i>✦</i><span>旅行</span><i>✦</i><span>音乐</span><i>✦</i><span>爱看星星</span><i>✦</i><span>努力学英语</span><i>✦</i>
+    </div>
+    <div class="ticker__group">
+      <span>AI 应用探索</span><i>✦</i><span>独立游戏开发</span><i>✦</i><span>视频剪辑</span><i>✦</i><span>摄影</span><i>✦</i><span>旅行</span><i>✦</i><span>音乐</span><i>✦</i><span>爱看星星</span><i>✦</i><span>努力学英语</span><i>✦</i>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <span class="big-outline bo--top" data-rep="ABOUT ABOUT ABOUT">ABOUT</span>
+  <div class="sec-head reveal">
+    <span class="sec-head__idx">01 / 个人特质</span>
+    <h2 class="sec-head__title">关于我<span>.</span></h2>
+  </div>
+
+  <p class="about__text reveal" data-delay="80">
+    我是 <b>INTJ</b> 型人格，习惯先看清结构再深入细节，喜欢用理性拆解复杂问题；
+    也在 AI、音乐、旅行与游戏中保持自己的节奏，一点点<em>探索世界的边界</em>。
+  </p>
+
+  <div class="traits">
+    <article class="trait trait--hero reveal" data-delay="0">
+      <div class="trait__ic">⌘</div>
+      <h3>INTJ · 建筑师</h3>
+      <p>独立、理性、富有远见。喜欢构建系统，用逻辑拆解复杂问题，追求效率与深度。</p>
+    </article>
+    <article class="trait reveal" data-delay="90">
+      <div class="trait__ic">✦</div>
+      <h3>AI 探索</h3>
+      <p>关注 AI 工具与前沿技术，喜欢用 Vibe Coding 把灵感快速变成可运行的作品。</p>
+    </article>
+    <article class="trait reveal" data-delay="180">
+      <div class="trait__ic">♫</div>
+      <h3>音乐</h3>
+      <p>偏爱纯音乐与氛围旋律，是放松、专注和发呆时的背景色。</p>
+    </article>
+    <article class="trait reveal" data-delay="270">
+      <div class="trait__ic">⌖</div>
+      <h3>旅行</h3>
+      <p>喜欢在路上看不同的风景与人，用脚步丈量世界，也顺路收集故事。</p>
+    </article>
+    <article class="trait reveal" data-delay="360">
+      <div class="trait__ic">▣</div>
+      <h3>游戏</h3>
+      <p>享受好叙事与好机制，从沙盒到独立游戏，偶尔动手折腾自己的小想法。</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ STORY / EDUCATION ============ -->
+<section class="story" id="story">
+  <div class="sec-head reveal">
+    <span class="sec-head__idx">02 / 求学之路</span>
+    <h2 class="sec-head__title">一路走来<span>.</span></h2>
+  </div>
+
+  <div class="timeline">
+    <div class="tl reveal" data-delay="0">
+      <div class="tl__dot"></div>
+      <div class="tl__year">-</div>
+      <div class="tl__body">
+        <h3>江苏省常熟市 · 新区小学</h3>
+        <p>在这里埋下好奇的种子。</p>
+      </div>
+    </div>
+    <div class="tl reveal" data-delay="90">
+      <div class="tl__dot"></div>
+      <div class="tl__year">-</div>
+      <div class="tl__body">
+        <h3>安徽省无为市 · 第三中学</h3>
+        <p>开始接触更广阔的知识世界。</p>
+      </div>
+    </div>
+    <div class="tl reveal" data-delay="180">
+      <div class="tl__dot"></div>
+      <div class="tl__year">-</div>
+      <div class="tl__body">
+        <h3>安徽省无为市 · 第一中学</h3>
+        <p>高中阶段，逐渐养成自主学习的方法。</p>
+      </div>
+    </div>
+    <div class="tl reveal tl--now" data-delay="270">
+      <div class="tl__dot"></div>
+      <div class="tl__year">NOW</div>
+      <div class="tl__body">
+        <h3>齐鲁工业大学 · 通信工程</h3>
+        <p>大一在读，目标升学考研，专注 AI 应用探索。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKS (横向画卷) ============ -->
+<section class="hscroll" id="works" data-pin>
+  <div class="hscroll__stage">
+    <div class="hscroll__track" id="worksTrack">
+
+      <header class="hscroll__head">
+        <span class="big-outline" data-rep="GAMES GAMES GAMES">GAMES</span>
+        <span class="sec-head__idx">03 / 我的作品</span>
+        <h2 class="hscroll__title">动手<span>玩过</span><i>.</i></h2>
+        <p class="hscroll__note">三个由好奇心驱动的 H5 小游戏 —— 向下滚动，画卷由右向左展开。</p>
+        <span class="hscroll__hint">SCROLL TO EXPLORE ↓</span>
+      </header>
+
+      <!-- 苍穹突围 -->
+    <a class="work" href="https://fei-ji-da-zhan.netlify.app/" target="_blank" rel="noopener">
+      <div class="work__media">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=retro%20vertical%20airplane%20shooter%20game%20cover%20art%2C%20dark%20space%20nebula%20background%2C%20glowing%20jet%20streaking%20through%20enemy%20bullets%2C%20neon%20cyan%20and%20orange%20glow%2C%20cinematic%2C%20highly%20detailed&image_size=landscape_4_3" alt="苍穹突围" loading="lazy" />
+        <span class="work__tag">✈ 苍穹突围</span>
+        <span class="work__go"></span>
+      </div>
+      <div class="work__info">
+        <h3>天空突围</h3>
+        <span class="work__en">Sky Breakout · canvas shooter</span>
+        <p>复古纵版飞机大战：灵活走位躲避弹幕，击落敌机冲击高分。手写碰撞检测与敌机生成逻辑，爆炸粒子特效拉满。</p>
+        <div class="work__chips">
+          <span>Canvas 2D</span><span>碰撞检测</span><span>游戏循环</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 粒子星图 -->
+    <a class="work" href="https://remarkable-sherbet-1c1bee.netlify.app/" target="_blank" rel="noopener">
+      <div class="work__media">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=constellation%20of%20glowing%20particles%20connected%20by%20light%20lines%20in%20deep%20space%2C%20purple%20and%20blue%20luminous%20dots%2C%20ethereal%20abstract%20digital%20art%2C%20dark%20background&image_size=landscape_4_3" alt="粒子星图" loading="lazy" />
+        <span class="work__tag">✨ 粒子星图</span>
+        <span class="work__go"></span>
+      </div>
+      <div class="work__info">
+        <h3>粒子星图</h3>
+        <span class="work__en">Particle Starmap · gesture control</span>
+        <p>挥动指尖或移动鼠标，指挥漫天粒子随你起舞。基于引力物理与实时连线渲染的手势粒子系统。</p>
+        <div class="work__chips">
+          <span>粒子系统</span><span>物理模拟</span><span>手势交互</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 铁甲征途 -->
+    <a class="work" href="https://mellow-tiramisu-01f72e.netlify.app/" target="_blank" rel="noopener">
+      <div class="work__media">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=retro%20tank%20battle%20top%20down%20pixel%20art%20battlefield%2C%20brick%20walls%20and%20obstacles%2C%20glowing%20explosions%2C%20dark%20moody%20arcade%20shooter%2C%20cinematic&image_size=landscape_4_3" alt="铁甲征途" loading="lazy" />
+        <span class="work__tag">🛡 铁甲征途</span>
+        <span class="work__go"></span>
+      </div>
+      <div class="work__info">
+        <h3>铁甲征途</h3>
+        <span class="work__en">Iron Conquest · tank battle</span>
+        <p>致敬经典坦克大战：驾驶坦克穿行战场，摧毁砖墙与障碍，在敌方火力的围剿中杀出一条铁甲之路。</p>
+        <div class="work__chips">
+          <span>瓦片地图</span><span>敌方 AI</span><span>键盘操控</span>
+        </div>
+      </div>
+    </a>
+
+      <footer class="hscroll__end">
+        <h3>// TO BE CONTINUED</h3>
+        <p>更多作品与新空间<br />将持续接入这里。</p>
+        <a href="#space">探索更多空间 →</a>
+      </footer>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTS (认证资质·吸顶抽屉叠放) ============ -->
+<section class="pstack" id="certs" data-stack>
+  <span class="big-outline bo--top" data-rep="CERTS CERTS CERTS">CREDENTIALS</span>
+  <div class="pstack__stage">
+    <header class="pstack__title reveal">
+      <span class="sec-head__idx">03½ / 认证资质</span>
+      <h2 class="pstack__head">我的<span>AI证书</span>.</h2>
+      <p class="pstack__note">向下滚动 —— 界面不动，六张证书像抽屉一样，从下往上依次滑出、叠放在台面上。</p>
+    </header>
+
+    <div class="pstack__racks" id="racks">
+      <figure class="rack"><span class="rack__ph">阿里云 · 人工智能训练师 · 高级</span><img src="人工智能训练师（高级）-朱智繁-20260809.jpg" alt="阿里云·人工智能训练师·高级" loading="lazy" /><figcaption>阿里云 · 人工智能训练师 · 高级</figcaption></figure>
+      <figure class="rack"><span class="rack__ph">阿里云 · 人工智能训练师 · 初级</span><img src="人工智能训练师（初级）-朱智繁-20260708.jpg" alt="阿里云·人工智能训练师·初级" loading="lazy" /><figcaption>阿里云 · 人工智能训练师 · 初级</figcaption></figure>
+      <figure class="rack"><span class="rack__ph">科大讯飞 · RAG 工程师</span><img src="Ai大学认证证书rag.png" alt="科大讯飞·RAG工程师" loading="lazy" /><figcaption>科大讯飞 · RAG 工程师</figcaption></figure>
+      <figure class="rack"><span class="rack__ph">科大讯飞 · Prompt 工程师</span><img src="Ai大学认证证书.png" alt="科大讯飞·Prompt工程师" loading="lazy" /><figcaption>科大讯飞 · Prompt 工程师</figcaption></figure>
+      <figure class="rack"><span class="rack__ph">科大讯飞 · 微调工程师</span><img src="Ai大学认证证书微调.png" alt="科大讯飞·微调工程师" loading="lazy" /><figcaption>科大讯飞 · 微调工程师</figcaption></figure>
+      <figure class="rack"><span class="rack__ph">科大讯飞 · 智能体工程师</span><img src="Ai大学认证证书智能体.png" alt="科大讯飞·智能体工程师" loading="lazy" /><figcaption>科大讯飞 · 智能体工程师</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPACE ============ -->
+<section class="space" id="space">
+  <span class="big-outline bo--top" data-rep="SPACES SPACES SPACES">EXPAND</span>
+  <div class="sec-head reveal">
+    <span class="sec-head__idx">04 / 我的空间</span>
+    <h2 class="sec-head__title">继续探索<span>.</span></h2>
+  </div>
+
+  <div class="space__grid">
+    <!-- 个人知识库 -->
+    <a class="entry reveal" data-delay="0" href="https://zzf-111.github.io/8771/" target="_blank" rel="noopener">
+      <div class="entry__media">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20digital%20knowledge%20library%20interface%2C%20organized%20documents%20and%20glowing%20violet%20cards%2C%20minimal%20dark%20ui%2C%20tech%20aesthetic&image_size=landscape_4_3" alt="个人知识库" loading="lazy" />
+        <span class="entry__go"></span>
+      </div>
+      <div class="entry__body">
+        <h3>个人知识库</h3>
+        <p>我的履历库 · 学习笔记与灵感收藏</p>
+      </div>
+    </a>
+
+    <!-- 个人工作台 -->
+    <a class="entry reveal" data-delay="120" href="https://zzf-111.github.io/-/" target="_blank" rel="noopener">
+      <div class="entry__media">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=sleek%20personal%20AI%20workspace%20dashboard%20ui%2C%20dark%20mode%20interface%20with%20glowing%20violet%20and%20pink%20accents%2C%20floating%20panels%2C%20charts%20and%20chat%20window%2C%20futuristic%20minimal%20design%2C%20soft%20neon%20glow%2C%20high%20detail%20web%20design%20showcase&image_size=landscape_4_3" alt="个人工作台" loading="lazy" />
+        <span class="entry__go"></span>
+      </div>
+      <div class="entry__body">
+        <h3>个人工作台</h3>
+        <p>我的 AI 工作流与效率工具箱</p>
+      </div>
+    </a>
+
+    <!-- 旅行足迹(本页体验，不跳转) -->
+    <a class="entry reveal" data-delay="240" href="#travel" id="travelEntry">
+      <div class="entry__media">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=scenic%20road%20trip%20landscape%20at%20dusk%2C%20mountains%20and%20winding%20road%2C%20warm%20sunset%20colors%2C%20cinematic&image_size=landscape_4_3" alt="旅行足迹" loading="lazy" />
+        <span class="entry__go"></span>
+      </div>
+      <div class="entry__body">
+        <h3>旅行足迹</h3>
+        <p>Travel Footprints · Infinite Gallery</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<footer class="contact" id="contact">
+  <span class="big-outline bo--top" data-rep="CONTACT CONTACT CONTACT">REACH ME</span>
+  <div class="contact__glow"></div>
+
+  <div class="contact__head reveal">
+    <span class="sec-head__idx">05 / 保持联系</span>
+    <h2 class="contact__title">期待与你<br />一起进步<span>.</span></h2>
+    <p class="contact__sub">如果你对我的作品、想法或者一次合作感兴趣，随时可以找到我。</p>
+  </div>
+
+  <div class="contact__row">
+    <a class="contact__item reveal" data-delay="0" href="tel:15215965339">
+      <b>PHONE · 手机</b>
+      <span>15215965339</span>
+      <i class="contact__copy" data-copy="15215965339">复制</i>
+    </a>
+    <a class="contact__item reveal" data-delay="80" href="https://weixin.qq.com/" target="_blank" rel="noopener">
+      <b>WECHAT · 微信</b>
+      <span>zzf15215965339</span>
+      <i class="contact__copy" data-copy="zzf15215965339">复制</i>
+    </a>
+    <a class="contact__item reveal" data-delay="160" href="mailto:2811748976@qq.com">
+      <b>EMAIL · 邮箱</b>
+      <span>2811748976@qq.com</span>
+      <i class="contact__copy" data-copy="2811748976@qq.com">复制</i>
+    </a>
+  </div>
+
+  <div class="contact__foot">
+    <span>© 2026 朱智繁 · 慢慢来，但别停下</span>
+    <a href="#home" class="to-top" data-magnetic>回到顶部 ↑</a>
+  </div>
+</footer>
+
+<!-- ============ 旅行足迹 · 本页沉浸体验(配色适配 internationalorange) ============ -->
+<div id="travel" class="travel" hidden>
+  <div class="travel__curtain" aria-hidden="true"></div>
+  <button class="travel__close" aria-label="关闭旅行足迹">✕</button>
+
+  <!-- 第一幕：Welcome to my world + 环绕图片 -->
+  <header class="travel__hero">
+    <h2 class="travel__title">
+      <span class="tt-l">Welcome to</span>
+      <em class="tt-l">my world</em>
+    </h2>
+    <p class="travel__tag">We build bridges between <b>footsteps &amp; memories.</b></p>
+    <div class="travel__ring" aria-hidden="true">
+      <img class="tr-chip" src="travel/travel-01.jpg" style="--x:4%;  --y:12%; --w:15rem; --r:-9deg; --d:.15s" alt="">
+      <img class="tr-chip" src="travel/travel-05.jpg" style="--x:74%; --y:8%;  --w:13rem; --r:7deg;  --d:.3s"  alt="">
+      <img class="tr-chip" src="travel/travel-09.jpg" style="--x:2%;  --y:58%; --w:12.5rem;--r:6deg;  --d:.45s" alt="">
+      <img class="tr-chip" src="travel/travel-15.jpg" style="--x:80%; --y:56%; --w:15.5rem;--r:-7deg; --d:.6s" alt="">
+      <img class="tr-chip" src="travel/travel-13.jpg" style="--x:30%; --y:2%;  --w:11rem; --r:5deg;  --d:.75s" alt="">
+      <img class="tr-chip" src="travel/travel-18.jpg" style="--x:58%; --y:70%; --w:12rem; --r:8deg;  --d:.9s" alt="">
+      <img class="tr-chip" src="travel/travel-22.jpg" style="--x:36%; --y:74%; --w:13.5rem;--r:-6deg; --d:1.05s" alt="">
+    </div>
+  </header>
+
+  <!-- 第二幕：hugeinc 式旋转木马画廊(逐张懒加载) -->
+  <div class="travel__gal">
+    <div class="tg__stage">
+      <span class="tg__bgword" aria-hidden="true">TRAVEL</span>
+      <button class="tg__arrow tg__arrow--l" aria-label="上一张">←</button>
+      <figure class="tg__frame">
+        <img class="tg__img" alt="旅行照片">
+      </figure>
+      <button class="tg__arrow tg__arrow--r" aria-label="下一张">→</button>
+      <div class="tg__hud">
+        <span class="tg__count">01 / 23</span>
+        <div class="tg__dots"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js?v=2"></script>
+</body>
+</html>
